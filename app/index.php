@@ -62,7 +62,7 @@ curl_close( $ch );
 				<div class="container">
 					<div class="row">
 
-						<div class="col-xl-3 col-lg-4 col-md-6">
+						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="1">
 								<div class="card-header">
 									<img class="card-img-top" src="assets/images/image-130.jpg">
@@ -89,7 +89,7 @@ curl_close( $ch );
 							</div>
 						</div>
 
-						<div class="col-xl-3 col-lg-4 col-md-6">
+						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="2">
 								<div class="card-header">
 									<img class="card-img-top" src="assets/images/image-130.jpg">
@@ -119,7 +119,7 @@ curl_close( $ch );
 							</div>
 						</div>
 
-						<div class="col-xl-3 col-lg-4 col-md-6">
+						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="3">
 								<div class="card-header">
 									<img class="card-img-top" src="assets/images/image-130.jpg">
@@ -149,7 +149,7 @@ curl_close( $ch );
 							</div>
 						</div>
 
-						<div class="col-xl-3 col-lg-4 col-md-6">
+						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="4">
 								<div class="card-header">
 									<img class="card-img-top" src="assets/images/image-130.jpg">
