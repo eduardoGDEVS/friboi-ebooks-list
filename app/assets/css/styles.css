@@ -65,6 +65,11 @@ a:hover {
 	transition: max-height .3s ease-in-out;
 }
 
+.card-img-top {
+	height: 180px;
+	object-fit: cover;
+}
+
 .limit-height:after {
 	content: "";
 	display: block;
@@ -75,8 +80,8 @@ a:hover {
 	right: 0;
 	background: rgb(255, 255, 255);
 	background: -moz-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8018557764902836) 15%, rgba(255, 255, 255, 0) 100%);
-	background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8018557764902836) 15%, rgba(255, 255, 255, 0) 100%);
-	background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8018557764902836) 15%, rgba(255, 255, 255, 0) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8018557764902836) 10%, rgba(255, 255, 255, 0) 100%);
+	background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8018557764902836) 10%, rgba(255, 255, 255, 0) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff", GradientType=1);
 }
 

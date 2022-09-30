@@ -2,7 +2,7 @@
 $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/ebooks' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-$output = curl_exec( $ch );
+$ebooks = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
 ?>
 
@@ -62,123 +62,41 @@ curl_close( $ch );
 				<div class="container">
 					<div class="row">
 
+					<?php
+					foreach ( $ebooks as $key => $ebook ) {
+						?>
+					 
+						
 						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="card mb-4 box-shadow" data-id="1">
+							<div class="card mb-4 box-shadow" data-id="<?php echo $key; ?>">
 								<div class="card-header">
-									<img class="card-img-top" src="assets/images/image-130.jpg">
+									<img class="card-img-top" src="http://3.91.170.62/wp-content/uploads/<?php echo $ebook->post_thumbnail; ?>">
 									<div class="d-flex justify-content-between p-3">
 										<div class="pr-3">
 											<img src="assets/images/logo-friboi.png">
 										</div>
 										<div class="flex-grow-1 pl-3 border-left-before position-relative">
-											<p class="card-text mt-1 mb-1">Friboi.</p>
-											<a href="#" class="card-text small red"><img src="assets/images/download.svg" class="mr-2">Download PDF</a>
+											<p class="card-text mt-1 mb-1"><?php echo $ebook->post_title; ?></p>
+											<a href="<?php echo $ebook->file; ?>" target="_blank" class="card-text small red" download>
+												<img src="assets/images/download.svg" class="mr-2">Download PDF
+											</a>
 										</div>
 									</div>
 								</div>
 								<div class="card-body p-3">
 									<div class="card-text limit-height position-relative">
 										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
+											<?php echo $ebook->post_content; ?>
 										</p>
 									</div>
 									<div class="d-flex justify-content-between align-items-center mt-2">
-										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(1)">Learn More</a>
+										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(<?php echo $key; ?>)">Learn More</a>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="card mb-4 box-shadow" data-id="2">
-								<div class="card-header">
-									<img class="card-img-top" src="assets/images/image-130.jpg">
-									<div class="d-flex justify-content-between p-3">
-										<div class="pr-3">
-											<img src="assets/images/logo-friboi.png">
-										</div>
-										<div class="flex-grow-1 pl-3 border-left-before position-relative">
-											<p class="card-text mt-1 mb-1">Friboi.</p>
-											<a href="#" class="card-text small red"><img src="assets/images/download.svg" class="mr-2">Download PDF</a>
-										</div>
-									</div>
-								</div>
-								<div class="card-body p-3">
-									<div class="card-text limit-height position-relative">
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-									</div>
-									<div class="d-flex justify-content-between align-items-center mt-2">
-										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(2)">Learn More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="card mb-4 box-shadow" data-id="3">
-								<div class="card-header">
-									<img class="card-img-top" src="assets/images/image-130.jpg">
-									<div class="d-flex justify-content-between p-3">
-										<div class="pr-3">
-											<img src="assets/images/logo-friboi.png">
-										</div>
-										<div class="flex-grow-1 pl-3 border-left-before position-relative">
-											<p class="card-text mt-1 mb-1">Friboi.</p>
-											<a href="#" class="card-text small red"><img src="assets/images/download.svg" class="mr-2">Download PDF</a>
-										</div>
-									</div>
-								</div>
-								<div class="card-body p-3">
-									<div class="card-text limit-height position-relative">
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-									</div>
-									<div class="d-flex justify-content-between align-items-center mt-2">
-										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(3)">Learn More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xl-4 col-lg-4 col-md-6">
-							<div class="card mb-4 box-shadow" data-id="4">
-								<div class="card-header">
-									<img class="card-img-top" src="assets/images/image-130.jpg">
-									<div class="d-flex justify-content-between p-3">
-										<div class="pr-3">
-											<img src="assets/images/logo-friboi.png">
-										</div>
-										<div class="flex-grow-1 pl-3 border-left-before position-relative">
-											<p class="card-text mt-1 mb-1">Friboi.</p>
-											<a href="#" class="card-text small red"><img src="assets/images/download.svg" class="mr-2">Download PDF</a>
-										</div>
-									</div>
-								</div>
-								<div class="card-body p-3">
-									<div class="card-text limit-height position-relative">
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-										<p>
-											For more than 60 years, Seara has worked to offer products that bring practicality, trust and innovation to your table, always with flavor and quality that will surprise the entire family.
-										</p>
-									</div>
-									<div class="d-flex justify-content-between align-items-center mt-2">
-										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(4)">Learn More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
+					<?php } ?>
 
 					</div>
 				</div>
