@@ -3,14 +3,14 @@ $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/ebooks' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
 $output = curl_exec( $ch );
-
 curl_close( $ch );
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,14 +47,14 @@ curl_close( $ch );
 			<section class="text-center pb-3 shadow-bottom position-relative">
 				<div class="container">
 					<img src="assets/images/logo-jbs.svg">
-					<p class="h5 mb-0">Welcome to JBS Brand Catalogues</p>
-					<p class="red mb-0">scroll to view <img src="assets/images/duo-down.svg"></p>
+					<p class="h5 mb-2">Welcome to JBS Brand Catalogues</p>
+					<a href="#" onClick="scrollToContent()" class="red mb-0">scroll to view <img src="assets/images/duo-down.svg"></a>
 				</div>
 			</section>
 
 			<section class="text-center pt-4 pb-2 position-relative">
 				<div class="container">
-					<img src="assets/images/banner-sial-paris.jpg" class="w-100">
+					<img src="assets/images/banner-sial-paris.jpg" class="w-100 max-height-300" id="banner-sial">
 				</div>
 			</section>
 

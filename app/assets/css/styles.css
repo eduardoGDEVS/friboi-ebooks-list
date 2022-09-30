@@ -87,3 +87,8 @@ a:hover {
 .limit-height.active:after {
 	display: none;
 }
+
+.max-height-300 {
+	max-height: 300px;
+	object-fit: contain;
+}

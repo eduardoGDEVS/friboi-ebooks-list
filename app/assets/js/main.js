@@ -4,7 +4,7 @@ function learnMore(dataId) {
 	div.find('.learn-more').hide();
 }
 function scrollToContent() {
-	$([document.documentElement, document.body]).animate({
-		200
-    }, 2000);
+	jQuery([document.documentElement, document.body]).animate({
+		scrollTop: jQuery("#ebooks").offset().top
+	}, 2000);
 }
