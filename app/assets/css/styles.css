@@ -1,0 +1,52 @@
+:root {
+	--red: #DF2E24;
+	--primary-family-font: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+	font-family: var(--primary-family-font);
+	font-size: 14px;
+	font-weight: 400;
+}
+
+p {
+	line-height: 1.3em;
+	font-size: 1em;
+}
+
+.red {
+	color: var(--red);
+}
+
+.shadow-bottom {
+	box-shadow: 0px 4px 5px rgb(0 0 0 / 10%);
+}
+
+.card {
+	border-radius: 0;
+	overflow: hidden;
+	border: none;
+}
+
+.card-header:first-child {
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.border-left-before:after {
+	content: " ";
+	display: block;
+	width: 1px;
+	background: #838383;
+	height: 25px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.small,
+small {
+	font-size: 90%;
+}
