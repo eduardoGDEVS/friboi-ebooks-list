@@ -6,7 +6,7 @@ $ebooks = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
 
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/categories' );
+curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/categories' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
 $raw_categories = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
