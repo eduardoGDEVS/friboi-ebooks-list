@@ -70,13 +70,13 @@ curl_close( $ch );
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="<?php echo $key; ?>">
 								<div class="card-header">
-									<img class="card-img-top" src="http://3.91.170.62/wp-content/uploads/<?php echo $ebook->post_thumbnail; ?>">
+									<img class="card-img-top" src="http://3.91.170.62/wp-content/uploads/<?php echo $ebook->thumbnail; ?>">
 									<div class="d-flex justify-content-between p-3">
 										<div class="pr-3">
 											<img src="assets/images/logo-friboi.png">
 										</div>
 										<div class="flex-grow-1 pl-3 border-left-before position-relative">
-											<p class="card-text mt-1 mb-1"><?php echo $ebook->post_title; ?></p>
+											<p class="card-text mt-1 mb-1"><?php echo $ebook->title; ?></p>
 											<a href="<?php echo $ebook->file; ?>" target="_blank" class="card-text small red" download>
 												<img src="assets/images/download.svg" class="mr-2">Download PDF
 											</a>
@@ -86,7 +86,7 @@ curl_close( $ch );
 								<div class="card-body p-3">
 									<div class="card-text limit-height position-relative">
 										<p>
-											<?php echo $ebook->post_content; ?>
+											<?php echo $ebook->content; ?>
 										</p>
 									</div>
 									<div class="d-flex justify-content-between align-items-center mt-2">
