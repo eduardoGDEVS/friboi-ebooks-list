@@ -4,6 +4,17 @@ curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/ebooks' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
 $ebooks = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
+
+$ch = curl_init();
+curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/categories' );
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+$raw_categories = json_decode( curl_exec( $ch ) );
+curl_close( $ch );
+
+$categories = array();
+foreach ( $raw_categories as $category ) {
+	$categories[ $category->title ] = $category;
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +65,7 @@ curl_close( $ch );
 
 			<section class="text-center pt-4 pb-2 position-relative">
 				<div class="container">
-					<img src="assets/images/banner-sial-paris.jpg" class="w-100 max-height-300" id="banner-sial">
+					<img src="http://3.91.170.62/wp-content/uploads/2022/10/sial-22-jbs.jpg" class="w-100 max-height-300" id="banner-sial">
 				</div>
 			</section>
 
@@ -65,32 +76,27 @@ curl_close( $ch );
 					<?php
 					foreach ( $ebooks as $key => $ebook ) {
 						?>
-					 
-						
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="card mb-4 box-shadow" data-id="<?php echo $key; ?>">
 								<div class="card-header">
 									<img class="card-img-top" src="http://3.91.170.62/wp-content/uploads/<?php echo $ebook->thumbnail; ?>">
 									<div class="d-flex justify-content-between p-3">
 										<div class="pr-3">
-											<img src="assets/images/logo-friboi.png">
+											<img src="<?php echo $categories[ $ebook->category ]->thumbnail; ?>">
 										</div>
 										<div class="flex-grow-1 pl-3 border-left-before position-relative">
 											<p class="card-text mt-1 mb-1"><?php echo $ebook->title; ?></p>
-											<a href="<?php echo $ebook->file; ?>" target="_blank" class="card-text small red" download>
+											<a href="<?php echo $ebook->file; ?>" class="card-text small red" download>
 												<img src="assets/images/download.svg" class="mr-2">Download PDF
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="card-body p-3">
-									<div class="card-text limit-height position-relative">
+									<div class="card-text position-relative">
 										<p>
 											<?php echo $ebook->content; ?>
 										</p>
-									</div>
-									<div class="d-flex justify-content-between align-items-center mt-2">
-										<a class="red small learn-more" href="javascript:void(0)" onClick="learnMore(<?php echo $key; ?>)">Learn More</a>
 									</div>
 								</div>
 							</div>
