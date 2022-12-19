@@ -1,13 +1,46 @@
 <?php
+define( 'API_BASE_URL', 'http://3.214.241.12:8080/api/v1/' );
+
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/ebooks' );
+curl_setopt( $ch, CURLOPT_URL, API_BASE_URL . 'auth/login' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json' ) );
+curl_setopt(
+	$ch,
+	CURLOPT_POSTFIELDS,
+	json_encode(
+		array(
+			'email'    => 'teste@teste.com.br',
+			'password' => 'Teste123456789@',
+		)
+	)
+);
+$token_api = json_decode( curl_exec( $ch ) );
+curl_close( $ch );
+
+$ch = curl_init();
+curl_setopt( $ch, CURLOPT_URL, API_BASE_URL . 'ebooks' );
+curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+curl_setopt(
+	$ch,
+	CURLOPT_HTTPHEADER,
+	array(
+		'Authorization: ' . $token_api->accessToken,
+	)
+);
 $ebooks = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
 
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL, 'http://54.157.32.185:8080/api/v1/categories' );
+curl_setopt( $ch, CURLOPT_URL, API_BASE_URL . 'categories' );
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+curl_setopt(
+	$ch,
+	CURLOPT_HTTPHEADER,
+	array(
+		'Authorization: ' . $token_api->accessToken,
+	)
+);
 $raw_categories = json_decode( curl_exec( $ch ) );
 curl_close( $ch );
 
